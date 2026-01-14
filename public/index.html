@@ -268,9 +268,12 @@
             width: 320px;
             height: 650px;
             box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-            background: #000;
+            background: #0D0210; /* Match App Background */
             margin: 0 auto;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Glare effect */
@@ -280,13 +283,62 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
             pointer-events: none;
+            z-index: 10;
         }
 
-        .phone-mockup img {
+        /* --- SPLASH SCREEN ANIMATION --- */
+        .app-splash-screen {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-primary);
         }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 8px; /* Matching swift spacing */
+            width: 100px;
+            height: 100px;
+            transform: scale(1.5); /* Scale up slightly for the phone view */
+        }
+
+        .dot {
+            width: 28px;
+            height: 28px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: var(--target-opacity);
+                transform: scale(1);
+            }
+        }
+
+        /* Positions & Opacities (Matching Swift Logic) */
+        .col-0 { --target-opacity: 1.0; grid-column: 1; }
+        .col-1 { --target-opacity: 0.6; grid-column: 2; }
+        .col-2 { --target-opacity: 0.3; grid-column: 3; }
+
+        .row-0 { grid-row: 1; }
+        .row-1 { grid-row: 2; }
+        .row-2 { grid-row: 3; }
+
+        /* Animation Sequence: Bottom-Up Spine -> Mid -> Tip */
+        .col-0.row-2 { animation-delay: 0.1s; }  /* Spine Bot */
+        .col-0.row-1 { animation-delay: 0.18s; } /* Spine Mid */
+        .col-0.row-0 { animation-delay: 0.26s; } /* Spine Top */
+        .col-1.row-1 { animation-delay: 0.34s; } /* Mid Bar Bot */
+        .col-1.row-0 { animation-delay: 0.42s; } /* Mid Bar Top */
+        .col-2.row-0 { animation-delay: 0.50s; } /* Tip */
 
         /* --- FEATURES SECTION --- */
         .features {
@@ -525,6 +577,26 @@
             padding: 10px;
             border-radius: 12px;
             font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-actions .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-on-accent);
+        }
+        
+        .cookie-actions .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--text-secondary);
+        }
+        
+        .cookie-actions .btn-outline:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
         }
 
         /* --- RESPONSIVE --- */
@@ -601,7 +673,16 @@
                 </div>
                 <div class="hero-image">
                     <div class="phone-mockup">
-                        <img src="https://placehold.co/320x650/161622/B4FF00?text=Active+Workout+UI" alt="Flux Active Workout UI">
+                        <div class="app-splash-screen">
+                            <div class="logo-grid">
+                                <div class="dot col-0 row-0"></div>
+                                <div class="dot col-0 row-1"></div>
+                                <div class="dot col-0 row-2"></div>
+                                <div class="dot col-1 row-0"></div>
+                                <div class="dot col-1 row-1"></div>
+                                <div class="dot col-2 row-0"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
