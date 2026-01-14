@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Check for saved consent
+        const savedConsent = localStorage.getItem('flux_cookie_consent');
+        
+        // Default to 'denied' unless previously granted
+        const initialConsent = savedConsent === 'granted' ? 'granted' : 'denied';
+
+        gtag('consent', 'default', {
+            'ad_storage': initialConsent,
+            'ad_user_data': initialConsent,
+            'ad_personalization': initialConsent,
+            'analytics_storage': initialConsent
+        });
+    </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXWCKJNPEH"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -163,10 +182,79 @@
         }
         .footer-links a:hover { color: var(--accent); }
 
+        /* --- COOKIE BANNER --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            max-width: 400px;
+            background: rgba(22, 22, 34, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            z-index: 9999;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: none; /* Hidden by default, JS toggles it */
+        }
+        
+        .cookie-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .cookie-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .cookie-actions .btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-actions .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-on-accent);
+        }
+        
+        .cookie-actions .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--text-secondary);
+        }
+        
+        .cookie-actions .btn-outline:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .footer-content { flex-direction: column; gap: 20px; }
             .footer-links a { margin: 0 10px; }
+            .cookie-banner {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -339,6 +427,45 @@
             </div>
         </div>
     </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <h3>Privacy & Data</h3>
+            <p>We use cookies to analyze traffic and improve your experience. Your health data is never sold.</p>
+        </div>
+        <div class="cookie-actions">
+            <button onclick="declineCookies()" class="btn btn-outline">Decline</button>
+            <button onclick="acceptCookies()" class="btn btn-primary">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // COOKIE LOGIC
+        function initCookieBanner() {
+            const consent = localStorage.getItem('flux_cookie_consent');
+            if (!consent) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('flux_cookie_consent', 'granted');
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted'
+            });
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        function declineCookies() {
+            localStorage.setItem('flux_cookie_consent', 'denied');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        window.onload = initCookieBanner;
+    </script>
 
 </body>
 </html>
