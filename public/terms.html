@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXWCKJNPEH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CXWCKJNPEH');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions | Flux</title>
+    <style>
+        :root {
+            /* Flux Theme Constants */
+            --bg-primary: #0D0210; /* Deep Navy */
+            --bg-secondary: #161622; /* Slightly lighter for cards */
+            --accent: #B4FF00; /* Electric Lime */
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --text-on-accent: #000000;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; margin-top: 3rem; color: var(--accent); padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        h3 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--text-primary); }
+        h4 { font-size: 1rem; margin-top: 1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover { text-decoration: underline; }
+
+        .uppercase { text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 700; color: var(--text-tertiary); }
+        
+        /* Highlight Box for Important Disclaimers */
+        .highlight-box {
+            background: rgba(180, 255, 0, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .highlight-box p { margin-bottom: 0; color: var(--text-primary); }
+        .highlight-box h3 { margin-top: 0; color: var(--accent); }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 2, 16, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .flux-logo-svg { width: 32px; height: 32px; }
+        .accent-fill { fill: var(--accent); }
+        .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENT --- */
+        .policy-content {
+            padding-top: 140px;
+            padding-bottom: 100px;
+        }
+
+        .last-updated {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: #08010a;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            margin-left: 24px;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .footer-content { flex-direction: column; gap: 20px; }
+            .footer-links a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo-container">
+                <svg viewBox="0 0 100 100" class="flux-logo-svg">
+                    <circle cx="30" cy="20" r="9" class="accent-fill" />
+                    <circle cx="30" cy="50" r="9" class="accent-fill" />
+                    <circle cx="30" cy="80" r="9" class="accent-fill" />
+                    <circle cx="55" cy="20" r="8" class="accent-fill" opacity="0.8" />
+                    <circle cx="80" cy="20" r="7" class="accent-fill" opacity="0.6" />
+                    <circle cx="55" cy="50" r="8" class="accent-fill" opacity="0.8" />
+                    <circle cx="75" cy="50" r="6" class="accent-fill" opacity="0.4" />
+                </svg>
+                <span class="logo-text">Flux</span>
+            </a>
+            <a href="index.html" class="back-link">Back to Home</a>
+        </div>
+    </nav>
+
+    <section class="policy-content">
+        <div class="container">
+            <p class="uppercase">Legal</p>
+            <h1>Terms and Conditions</h1>
+            <p class="last-updated" style="margin-top: 0; border-top: none;">Last updated: January 1, 2026</p>
+            
+            <p>These Terms and Conditions (“Terms”) govern your access to and use of the <strong>Flux WORKOUTS</strong> software application and associated services (the “App”, “Flux”, or “Services”) operated by <strong>DIGITAL FLUX LTD</strong> (“we”, “us”, or “our”).</p>
+
+            <p>Please read these Terms carefully before using the App.</p>
+            <p>By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you may not access or use the Service.</p>
+
+            <h2>1. Eligibility & Age Requirements</h2>
+            <p>Flux is intended for adult users.</p>
+            <ul>
+                <li>You must be <strong>at least 18 years old</strong> to create an account and agree to these Terms.</li>
+                <li>Minors (rated 4+ in app stores) may use the App <strong>only under the supervision of a parent or legal guardian</strong>.</li>
+                <li>By permitting a minor to use the App, the parent or guardian:
+                    <ul>
+                        <li>Accepts full responsibility for the minor’s use.</li>
+                        <li>Represents that they have reviewed and agreed to these Terms on the minor’s behalf.</li>
+                        <li>Assumes all risks associated with the minor’s participation in physical activity.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>2. Health & Medical Disclaimer</h2>
+            <div class="highlight-box">
+                <h3>Not a Medical Device</h3>
+                <p>Flux is <strong>not a medical device</strong> and does <strong>not provide medical advice</strong>. The App is intended for informational and educational purposes only. Flux is not intended to diagnose, treat, cure, or prevent any disease or medical condition. You should consult a qualified healthcare professional before beginning any exercise program.</p>
+            </div>
+
+            <h3>Assumption of Risk</h3>
+            <p>You acknowledge that physical exercise, including strength training, involves inherent risks, including injury or death. You voluntarily assume <strong>all known and unknown risks</strong> associated with using the Service.</p>
+            <p>You agree to immediately discontinue use of the Service and seek medical advice if you experience pain, dizziness, shortness of breath, or physical discomfort.</p>
+
+            <h3>No Liability</h3>
+            <p>To the fullest extent permitted by law, DIGITAL FLUX LTD is not responsible for injuries, health complications, or damages arising from use of workout recommendations, tracking features, timers, or analytics provided by the App.</p>
+
+            <h2>3. Accounts & Security</h2>
+            <ul>
+                <li>You must provide accurate and complete information when creating an account.</li>
+                <li>You are responsible for safeguarding your login credentials and all activity under your account.</li>
+                <li>You agree not to share your account or password with others.</li>
+                <li>You must notify us immediately of any unauthorized use or security breach.</li>
+            </ul>
+            <p>We reserve the right to suspend or terminate accounts that violate these Terms or compromise the security or integrity of the Service.</p>
+
+            <h2>4. User Content & Social Features</h2>
+            <p>Flux allows you to submit, log, and share content including workouts, notes, comments, images, and profile data (“User Content”).</p>
+            <ul>
+                <li>You retain ownership of your User Content.</li>
+                <li>By submitting User Content, you grant us a <strong>non-exclusive, worldwide, royalty-free, sublicensable license</strong> to use, store, modify, analyze, display, and distribute such content solely to operate, improve, and promote the Service.</li>
+                <li>You represent that you own or have the right to submit any User Content you provide.</li>
+            </ul>
+            <p>We reserve the right to remove User Content or restrict accounts at our discretion if content is unlawful, abusive, misleading, or violates these Terms.</p>
+
+            <h2>5. Data Usage, Analytics & AI</h2>
+            <p>By using the Service, you acknowledge that:</p>
+            <ul>
+                <li>Workout data, usage patterns, and interactions may be analyzed to:
+                    <ul>
+                        <li>Improve training recommendations.</li>
+                        <li>Develop new features.</li>
+                        <li>Train algorithms and machine-learning models.</li>
+                        <li>Generate anonymised insights and analytics.</li>
+                    </ul>
+                </li>
+                <li>Where required by law, you may opt out of certain data uses within the App.</li>
+                <li>Personal data is handled in accordance with our <a href="privacy.html">Privacy Policy</a>, which forms part of these Terms.</li>
+            </ul>
+
+            <h2>6. Subscriptions, Free Trials & Payments</h2>
+            <p>Flux may offer free and paid subscription plans (“Pro”).</p>
+
+            <h3>Free Trials</h3>
+            <ul>
+                <li>Free trials automatically convert to paid subscriptions unless cancelled before the trial ends.</li>
+                <li>Billing begins immediately after the trial period expires.</li>
+            </ul>
+
+            <h3>Billing & Renewal</h3>
+            <ul>
+                <li>Payment is charged to your Apple ID at confirmation of purchase.</li>
+                <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</li>
+                <li>You may manage or cancel subscriptions via your App Store account settings.</li>
+            </ul>
+
+            <h3>Changes & Refunds</h3>
+            <ul>
+                <li>Subscription prices may change for future billing periods.</li>
+                <li>Except where required by law, payments are non-refundable.</li>
+                <li>We do not guarantee the availability of any specific feature at any time.</li>
+            </ul>
+
+            <h2>7. Intellectual Property</h2>
+            <p>All intellectual property rights in the App, including software, algorithms, workouts, branding, and design, are owned by DIGITAL FLUX LTD or its licensors.</p>
+            <p>You may not copy, modify, distribute, reverse engineer, scrape, or exploit any part of the Service without prior written permission.</p>
+
+            <h2>8. Apple App Store Terms</h2>
+            <p>If you download the App from the Apple App Store:</p>
+            <ul>
+                <li>These Terms are between you and DIGITAL FLUX LTD, not Apple.</li>
+                <li>Apple has no obligation to provide maintenance or support.</li>
+                <li>Apple is not responsible for any claims relating to the App.</li>
+                <li>Apple is a third-party beneficiary of these Terms and may enforce them against you.</li>
+            </ul>
+
+            <h2>9. Termination</h2>
+            <p>We may suspend or terminate your access to the Service at any time, with or without notice, for violations of these Terms or misuse of the App.</p>
+            <p>Upon termination:</p>
+            <ul>
+                <li>Your access to the Service will cease.</li>
+                <li>Subscription access may be revoked.</li>
+                <li>User Content may be deleted in accordance with our data retention policies.</li>
+            </ul>
+
+            <h2>10. Limitation of Liability</h2>
+            <p>Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, fraud, or any liability that cannot be excluded under applicable law.</p>
+            <p>To the fullest extent permitted by law, DIGITAL FLUX LTD shall not be liable for indirect, incidental, consequential, or punitive damages, including loss of profits, data, or goodwill.</p>
+            <p>Our total liability shall not exceed the amount paid by you for the Service in the twelve (12) months preceding the claim.</p>
+
+            <h2>11. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless DIGITAL FLUX LTD and its affiliates from any claims, damages, losses, or expenses arising from your use of the Service, User Content, or violation of these Terms.</p>
+
+            <h2>12. Governing Law & Jurisdiction</h2>
+            <p>These Terms are governed by the laws of <strong>England and Wales</strong>. The courts of England and Wales shall have exclusive jurisdiction, subject to mandatory consumer protection laws in your country of residence.</p>
+
+            <h2>13. Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. Changes will be notified via the App or email and take effect upon posting. Continued use of the Service constitutes acceptance of the updated Terms.</p>
+
+            <h2>14. Contact Us</h2>
+            <p>If you have any questions about these Terms, contact us at:</p>
+            <p><a href="mailto:support@fluxworkouts.com">support@fluxworkouts.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo-container">
+                <span class="logo-text" style="font-size: 1.2rem;">Flux</span>
+                <span style="color: var(--text-tertiary); margin-left: 10px; font-size: 0.85rem;">© 2026 Flux Workouts</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html" style="color: var(--accent);">Terms</a>
+                <a href="disclaimer.html">Medical</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
