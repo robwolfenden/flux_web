@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const savedConsent = localStorage.getItem('flux_cookie_consent');        
+        const initialConsent = savedConsent === 'granted' ? 'granted' : 'denied';
+
+        gtag('consent', 'default', {
+            'ad_storage': initialConsent,
+            'ad_user_data': initialConsent,
+            'ad_personalization': initialConsent,
+            'analytics_storage': initialConsent
+        });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXWCKJNPEH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CXWCKJNPEH');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Flux Workouts</title>
+    <style>
+        :root {
+            --bg-primary: #0D0210; 
+            --bg-secondary: #161622; 
+            --accent: #B4FF00; 
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --text-on-accent: #000000;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --error: #FF4B4B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAVIGATION (Consistent with Home) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 2, 16, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--text-primary); }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 28px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* LOGO GRID ANIMATION */
+        .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 3px; }
+        .dot { width: 100%; height: 100%; background: var(--accent); border-radius: 50%; opacity: 0; transform: scale(0); animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .dot.col-0 { grid-column: 1; --target-opacity: 1.0; }
+        .dot.col-1 { grid-column: 2; --target-opacity: 0.6; }
+        .dot.col-2 { grid-column: 3; --target-opacity: 0.3; }
+        .dot.row-0 { grid-row: 1; }
+        .dot.row-1 { grid-row: 2; }
+        .dot.row-2 { grid-row: 3; }
+        @keyframes popIn { to { opacity: var(--target-opacity); transform: scale(1); } }
+
+        /* SUPPORT CONTENT */
+        .support-hero { padding: 160px 0 60px 0; text-align: center; }
+        .support-hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .support-hero p { color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            padding-bottom: 100px;
+        }
+
+        /* FAQ/INFO SIDE */
+        .info-card {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            height: fit-content;
+        }
+        .info-card h3 { margin-bottom: 20px; font-size: 1.5rem; color: var(--accent); }
+        .info-item { margin-bottom: 24px; }
+        .info-item h4 { margin-bottom: 8px; color: var(--text-primary); }
+        .info-item p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* FORM SIDE */
+        .form-container {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .form-group { margin-bottom: 24px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+        
+        input, textarea, select {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(180, 255, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-on-accent);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* SUCCESS MESSAGE */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+        #success-message h2 { color: var(--accent); margin-bottom: 10px; }
+
+        /* FOOTER */
+        footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; background: #08010a; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; margin-left: 32px; font-weight: 500; transition: var(--transition); }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 900px) {
+            .support-grid { grid-template-columns: 1fr; }
+            .support-hero h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo-container">
+                <div class="logo-grid" style="width: 28px; height: 28px; gap: 3px;">
+                    <div class="dot col-0 row-0"></div><div class="dot col-0 row-1"></div><div class="dot col-0 row-2"></div>
+                    <div class="dot col-1 row-0"></div><div class="dot col-1 row-1"></div>
+                    <div class="dot col-2 row-0"></div>
+                </div>
+                <span class="logo-text">Flux Workouts</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features">Experience</a>
+                <a href="index.html#matrix">Free vs Pro</a>
+                <a href="index.html" class="btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="support-hero">
+        <div class="container">
+            <h1>Support <span style="color: var(--accent);">Center</span></h1>
+            <p>Need help with the engine or your account? Our team is here to ensure your training remains uninterrupted.</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="support-grid">
+            <div class="info-card">
+                <h3>Direct Assistance</h3>
+                <div class="info-item">
+                    <h4>Technical Issues</h4>
+                    <p>Report bugs or synchronization errors with HealthKit directly through the form.</p>
+                </div>
+                <div class="info-item">
+                    <h4>Account & Billing</h4>
+                    <p>For Pro subscription inquiries, please provide the email associated with your App Store account.</p>
+                </div>
+                <div class="info-item">
+                    <h4>Response Time</h4>
+                    <p>Our autonomous engine is fast, but our humans take a little longer. Expect a reply within 24-48 hours.</p>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form id="support-form">
+                    <div class="form-group">
+                        <label for="user-name">Full Name</label>
+                        <input type="text" id="user-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">Email Address</label>
+                        <input type="email" id="user-email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="issue-type">Inquiry Type</label>
+                        <select id="issue-type" required>
+                            <option value="technical">Technical Support</option>
+                            <option value="billing">Billing & Pro Subscription</option>
+                            <option value="feedback">Feature Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="6" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Send Message</button>
+                </form>
+
+                <div id="success-message">
+                    <h2>Message Sent</h2>
+                    <p>Thank you for reaching out. A ticket has been created and our team will be in touch shortly.</p>
+                    <br>
+                    <a href="index.html" class="btn btn-outline" style="width: auto;">Return Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo-container">
+                <span class="logo-text" style="font-size: 1.2rem;">Flux Workouts</span>
+                <span style="color: var(--text-tertiary); margin-left: 10px; font-size: 0.85rem;">© 2026 DIGITAL FLUX LTD</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="support.html">Support</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // TODO: Replace with your project's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const supportForm = document.getElementById('support-form');
+        const successMsg = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        supportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            const formData = {
+                to: 'support@fluxworkouts.com', // Replace with your support email
+                message: {
+                    subject: `Flux Support: ${document.getElementById('issue-type').value} from ${document.getElementById('user-name').value}`,
+                    text: document.getElementById('message').value,
+                    html: `
+                        <strong>Name:</strong> ${document.getElementById('user-name').value}<br>
+                        <strong>Email:</strong> ${document.getElementById('user-email').value}<br>
+                        <strong>Type:</strong> ${document.getElementById('issue-type').value}<br><br>
+                        <strong>Message:</strong><br>${document.getElementById('message').value}
+                    `,
+                },
+                createdAt: serverTimestamp()
+            };
+
+            try {
+                // This writes to the 'mail' collection, which Trigger Email extension listens to
+                await addDoc(collection(db, "mail"), formData);
+                
+                supportForm.style.display = 'none';
+                successMsg.style.display = 'block';
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert("There was an error sending your message. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Send Message";
+            }
+        });
+    </script>
+</body>
+</html>
